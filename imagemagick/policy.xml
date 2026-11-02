@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The booth's ImageMagick security policy, copied over the image default. -->
+<policymap>
+  <!-- A 4-frame strip never needs more than this. -->
+  <policy domain="resource" name="memory" value="192MiB"/>
+  <policy domain="resource" name="map" value="384MiB"/>
+  <policy domain="resource" name="disk" value="1GiB"/>
+  <policy domain="resource" name="width" value="12KP"/>
+  <policy domain="resource" name="height" value="12KP"/>
+  <policy domain="resource" name="list-length" value="32"/>
+  <policy domain="resource" name="thread" value="2"/>
+  <policy domain="resource" name="time" value="30"/>
+  <!-- No external programs, no indirect @file reads. -->
+  <policy domain="delegate" rights="none" pattern="*"/>
+  <policy domain="path" rights="none" pattern="@*"/>
+  <!-- Only the formats a photo booth reads and writes, plus the built-in canvases it draws with. -->
+  <policy domain="coder" rights="none" pattern="*"/>
+  <policy domain="coder" rights="read | write" pattern="{JPEG,JPG,PNG,WEBP,GIF}"/>
+  <policy domain="coder" rights="read" pattern="{XC,RADIAL-GRADIENT,GRADIENT}"/>
+  <!-- The in-memory register a single photo is kept in while its 4 frames are cut. -->
+  <policy domain="coder" rights="read | write" pattern="MPR"/>
+</policymap>

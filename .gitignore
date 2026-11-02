@@ -1,0 +1,16 @@
+# Build outputs and dependencies
+/booth
+/demo-docker
+*.test
+vendor/
+
+# Environment files
+.env*
+!.env.example
+
+# Clever Cloud link (app id lives here)
+.clever.json
+
+# OS files
+.DS_Store
+Thumbs.db

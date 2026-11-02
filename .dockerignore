@@ -1,0 +1,6 @@
+.git
+.clever.json
+.env*
+docs
+*.md
+LICENSE
