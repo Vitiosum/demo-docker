@@ -122,6 +122,7 @@ func (a *App) index(w http.ResponseWriter, r *http.Request) {
 	a.mu.RUnlock()
 	data := map[string]any{
 		"Vars":     platformVars(),
+		"Live":     os.Getenv("APP_ID") != "", // set by Clever Cloud: switches the header pill
 		"Facts":    a.facts,
 		"Docker":   dockerLines(dockerfile),
 		"Recipes":  recipes,

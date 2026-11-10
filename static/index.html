@@ -24,7 +24,7 @@
     <span class="cc-topbar__spacer"></span>
     <nav class="cc-topbar__nav" aria-label="Status">
       <span class="cc-pill cc-pill--mono cc-hide-sm">Go 1.27 · Alpine 3.24 · ImageMagick 7.1</span>
-      <span class="cc-pill cc-pill--live"><span class="cc-dot"></span>Live on Clever Cloud</span>
+      {{if .Live}}<span class="cc-pill cc-pill--live"><span class="cc-dot"></span>Live on Clever Cloud</span>{{else}}<span class="cc-pill cc-pill--muted"><span class="cc-dot cc-dot--muted"></span>Local · not on Clever Cloud</span>{{end}}
       <a class="cc-pill cc-pill--gradient" href="https://academy.clever.cloud/" target="_blank" rel="noopener">Get certified ↗</a>
     </nav>
   </div>

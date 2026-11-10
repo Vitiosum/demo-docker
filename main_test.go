@@ -94,6 +94,22 @@ func TestPageShowsOnlyAllowedVariables(t *testing.T) {
 	}
 }
 
+func TestHeaderPillTellsWhereItRuns(t *testing.T) {
+	page := func() string {
+		rec := httptest.NewRecorder()
+		testApp(t).ServeHTTP(rec, httptest.NewRequest("GET", "/", nil))
+		return rec.Body.String()
+	}
+	t.Setenv("APP_ID", "")
+	if p := page(); !strings.Contains(p, "Local · not on Clever Cloud") || strings.Contains(p, "Live on Clever Cloud") {
+		t.Fatal("without APP_ID the header pill must say local")
+	}
+	t.Setenv("APP_ID", "app_test")
+	if p := page(); !strings.Contains(p, "Live on Clever Cloud") || strings.Contains(p, "Local · not on Clever Cloud") {
+		t.Fatal("with APP_ID the header pill must say live")
+	}
+}
+
 func TestStripRejectsBadInput(t *testing.T) {
 	h := testApp(t)
 	photo := samplePhoto(t)
