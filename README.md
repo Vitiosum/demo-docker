@@ -2,6 +2,8 @@
 
 > A vintage photo booth in the browser. Step behind the red curtain, take four poses with your webcam (or pick one photo), insert the coin, and a Go server prints a 4-frame strip in sepia, halftone, posterize and film grain. The printing is done by **ImageMagick 7, installed in the app's own Docker image**: the **Clever Cloud Docker runtime** builds the multi-stage Dockerfile and runs it as a non-root user. The strip comes back to you; the server keeps nothing. Dressed in the **Clever Brand Kit**, with the Clever Cloud Academy certification in the footer.
 
+![The photo booth run locally, outside the container (the Go server from the Dockerfile compiled and started directly, with a local ImageMagick 7): the red curtain opens on a chosen photo, the coin is inserted, the countdown runs, the four lamps light up and a new 4-frame strip printed by ImageMagick drops in the chute](docs/tour.gif)
+
 ![The photo booth, a strip just printed](docs/screenshot-action.png)
 
 More screenshots: [desktop](docs/screenshot-desk.png), [phone](docs/screenshot-phone.png).
